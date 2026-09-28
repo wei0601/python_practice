@@ -1,0 +1,18 @@
+def moveZeros(nums):
+    """
+    将数组中的所有零移动到末尾，同时保持非零元素的相对顺序。
+    :param nums: List[int] - 输入的整数数组
+    :return: None - 原地修改输入数组
+    """
+    lastNonZeroFoundAt = 0  # 用于跟踪最后一个非零元素的位置
+
+    for i in range(len(nums)):
+        if nums[i]!=0:
+            nums[lastNonZeroFoundAt] = nums[i]
+            lastNonZeroFoundAt += 1
+    # 将剩余的位置填充为零
+    for i in range(lastNonZeroFoundAt,len(nums)):
+        nums[i] = 0
+    return nums
+nums = [0,1,0,12,3,3,4,5,0]
+print(moveZeros(nums))

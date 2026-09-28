@@ -1,0 +1,21 @@
+def isValid(s: str) -> bool:#->bool表示返回值类型为bool
+    stack = []
+    for i in s:
+        if i == '(' or i == '[' or i == '{':
+            stack.append(i)
+        elif i == ')' or i == ']' or i == '}':
+            if len(stack) == 0:
+                return False
+            if i == ')' and stack[-1] == '(':
+                stack.pop()
+            elif i == ']' and stack[-1] == '[':
+                stack.pop()
+            elif i == '}' and stack[-1] == '{':
+                stack.pop()
+            else:
+                return False
+        else:
+            continue
+    return len(stack) == 0
+s = "([{a}])"
+print(isValid(s))#输出True

@@ -1,0 +1,9 @@
+s=input("Enter a string:")
+ws = s.split()
+count={}
+for w in ws:
+    if w in count:
+        count[w] += 1
+    else:
+        count[w] = 1
+print(count)

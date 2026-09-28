@@ -1,0 +1,16 @@
+def find_second_largest(arr):
+    if len(arr) <2:
+        return None
+    first = second = float("-inf")
+    for num in arr:
+        if num > first:
+            second = first
+            first = num
+        elif num > second and num !=first:
+            second = num
+    return second if second != float("-inf") else None
+
+# 示例用法
+arr = [3, 1, 4, 4, 5, 2]
+second_largest = find_second_largest(arr)
+print("第二大元素是:", second_largest)  # 输出: 第二大元素是: 4

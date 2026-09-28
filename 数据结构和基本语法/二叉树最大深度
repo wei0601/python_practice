@@ -1,0 +1,16 @@
+class BinaryTree:
+    def __init__(self,value):
+        self.value = value
+        self.left = None
+        self.right = None
+def maxDepth(root):
+    if root == None:
+        return 0
+    else:
+        left_depth = maxDepth(root.left)
+        right_depth = maxDepth(root.right)
+        return max(left_depth,right_depth) + 1
+# 测试代码
+root = None
+print(maxDepth(root)) # 输出 3
+

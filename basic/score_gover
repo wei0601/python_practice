@@ -1,0 +1,19 @@
+students ={
+    "Tom": 80,
+    "Jerry": 90,
+    "Spike": 70,
+    "Tyke": 85,
+}
+name = input(" Search name:")
+#search the name in the dictionary
+if name in students:
+    print("The score of",name," is ",students[name])
+else:
+    print("The name is not in the list")
+#delete
+del students["Tom"]
+#add
+students["Tyke"]= 90
+#modify
+students["Tyke"]= 95
+print(students)

@@ -1,0 +1,18 @@
+def judge(s1,s2):
+    if len(s1) !=len(s2):
+        return False
+    s1= sorted(s1)
+    s2= sorted(s2)
+    return s1==s2
+def judgehash(s1,s2):
+    if len(s1) != len(s2):
+        return False
+    dic1={}
+    dic2={}
+    for i in s1:
+        dic1[i]=dic1.get(i,0)+1
+    for i in s2:
+        dic2[i]=dic2.get(i,0)+1#dic.get(i,0)表示如果i不在字典中，返回0，否则返回i对应的值
+    return dic1==dic2
+print(judge("abc","cba"))
+print(judgehash("abc","cba"))

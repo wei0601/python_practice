@@ -1,0 +1,24 @@
+def twosum(nums, target):
+    for i in range(len(nums)):
+        if target - nums[i] in nums :
+            a=nums.index(target - nums[i])
+            if a == i:
+                continue
+            else:
+                return [i,a]
+        else:
+            continue
+    return "no solution"
+##效率较低
+def twosumdict(nums, target):
+    dict = {}
+    for i in range(len(nums)):
+        if target - nums[i] in dict:
+            return [dict[target - nums[i]], i]
+        else:
+            dict[nums[i]] = i
+    return "no solution"    
+nums = [2,7,11,15]
+target = 9
+print("暴力搜索：",twosum(nums, target))
+print("hash table:",twosumdict(nums, target))

@@ -1,0 +1,35 @@
+"""
+暴力算法
+"""
+def lensubstr(s):
+    length = 0
+    for i in range(len(s)):
+        seen = set()
+        for j in range(i,len(s)):
+            if s[j] in seen :
+                break
+            seen.add(s[j])
+            length = max(length, j-i+1)
+    return length
+"""
+滑动窗口
+"""
+def hualensubstr(s):
+    length = 0 
+    Left = 0
+    Right = 0
+    seen = set()
+    while Right < len(s):
+        if s[Right] not in seen :
+            seen.add(s[Right])
+            length = max(length, Right-Left+1)
+            Right += 1
+        else:
+            seen.remove(s[Left])
+            Left += 1
+    return length
+    
+s = input("请输入字符串：")
+print( hualensubstr(s) )  
+print( lensubstr(s) )  
+

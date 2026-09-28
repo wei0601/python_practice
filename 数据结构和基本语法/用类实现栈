@@ -1,0 +1,11 @@
+class Stack:
+    def __init__(self):
+        self.item = []
+    def push(self,x):
+        self.item.append(x)
+    def pop(self):
+        return self.item.pop()
+    def top(self):
+        return self.item[-1]
+    def is_empty(self):
+        return self.item == []

@@ -1,0 +1,28 @@
+class BinaryTree:
+    def __init__(self,value):
+        self.value = value
+        self.left = None
+        self.right = None
+    def isSymmetric(self):
+        def check(left,right):
+            if left == None and right == None:
+                return True
+            elif left == None or right == None:
+                return False
+            elif left.value != right.value:
+                return False
+            else:
+                return check(left.left,right.right) and check(left.right,right.left)
+        return check(self.left,self.right)
+root = BinaryTree(1)    
+
+root.left = BinaryTree(2)
+root.right = BinaryTree(2)
+
+root.left.left = BinaryTree(3)
+root.left.right = BinaryTree(3)
+
+root.right.left = BinaryTree(6)
+root.right.right = BinaryTree(6)
+
+print(root.isSymmetric())

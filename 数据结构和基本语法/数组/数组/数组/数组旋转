@@ -1,0 +1,6 @@
+def rotate(nums,k):
+    k=k%len(nums)# 为了避免k大于数组长度的情况
+    return nums[-k:] + nums[:-k]
+nums = [1,2,3,4,5,6,7]
+k = 3
+print(rotate(nums,k))# 输出: [5,6,7,1,2,3,4]    

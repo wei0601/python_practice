@@ -1,0 +1,35 @@
+class Tree:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+root = Tree(1)
+root.left = Tree(2)
+root.right = Tree(3)
+root.left.left = Tree(4)
+root.left.right = Tree(5)
+root.right.left = Tree(6)
+root.right.right = Tree(7)
+def pre_order(root):
+    if root is None:
+        return
+    print(root.value,end = '')
+    pre_order(root.left)
+    pre_order(root.right)
+pre_order(root) # 1 2 4 5 3 6 7
+print("\n")
+def in_order(root):
+    if root is None:
+        return
+    in_order(root.left)
+    print(root.value,end = '')
+    in_order(root.right)
+in_order(root) 
+print("\n")
+def post_order(root):
+    if root is None:
+        return
+    post_order(root.left)
+    post_order(root.right)
+    print(root.value,end = '')
+post_order(root) # 4 5 2 6 7 3 

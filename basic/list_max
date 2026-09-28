@@ -1,0 +1,8 @@
+nums=[3,8,2,10,5]
+max = nums[0]
+for i in range(len(nums)):
+    if nums[i]>max:
+        max = nums[i]
+    else:
+        continue
+print(max)

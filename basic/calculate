@@ -1,0 +1,16 @@
+def calculate(a,b,operator):
+    if operator == "+":
+        return a + b
+    elif operator == "-":
+        return a - b
+    elif operator == "*":
+        return a * b
+    elif operator == "/":
+        if b != 0:
+            return a / b
+        else:
+            return "Error: Division by zero"
+print(calculate(10, 5, "+"))  # Output: 15
+print(calculate(10, 5, "-"))  # Output: 5
+print(calculate(10, 5, "*"))  # Output: 50
+print(calculate(10, 5, "/"))  # Output: 2.0

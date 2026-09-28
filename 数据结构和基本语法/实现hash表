@@ -1,0 +1,50 @@
+class HashTable:
+    def __init__(self):
+        self.size = 10
+        self.table = [[] for _ in range(self.size)]#创建一个大小为10的数组，每个元素都是一个空列表
+    def hash(self,key):
+        return hash(key) % self.size
+    def insert(self,key,value):
+        index = self.hash(key)
+        self.table[index].append([key,value])
+    def get(self,key):
+        index = self.hash(key)
+        for item in self.table[index]:
+            if item[0] == key:
+                return item[1]
+        return None
+    def delete(self,key):
+        index = self.hash(key) 
+        for item in self.table[index]:
+            if item[0] == key: 
+                self.table[index].remove(item) 
+                return True    
+        return False
+h = HashTable()
+
+# 插入数据
+h.insert("name", "Tom")
+h.insert("age", 20)
+h.insert("city", "New York")
+
+
+# 查询数据
+print(h.get("name"))
+print(h.get("age"))
+print(h.get("city"))
+
+
+# 查询不存在的key
+print(h.get("job"))
+
+
+# 删除数据
+print(h.delete("age"))
+
+
+# 删除后再次查询
+print(h.get("age"))
+
+
+# 查看整个哈希表内部结构
+print(h.table)

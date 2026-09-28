@@ -1,0 +1,16 @@
+def cpmpress(s):
+    Left = 0
+    Right = 0 
+    l = 0
+    s1=[]
+    while Right < len(s):
+        if s[Right] == s[Left]:
+            l +=1
+            Right +=1
+        else:
+            s1.append(s[Left] + str(l))
+            Left = Right
+            l = 0
+    s1.append(s[Left] + str(l))
+    return "".join(s1)
+print(cpmpress("aaabbbcc"))
