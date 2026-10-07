@@ -1,0 +1,14 @@
+def small_k(nums,k):
+    if not nums:
+        return []
+    sorted_nums = sorted(nums)
+    return sorted_nums[:k]
+def small_k_heap(nums,k):
+    if not nums or k<=0:
+        return []
+    import heapq
+    heapq.heapify(nums)##修改原列表，不产生新列表
+    result = [] 
+    for _ in range(min(k, len(nums))):
+        result.append(heapq.heappop(nums))
+    return result
